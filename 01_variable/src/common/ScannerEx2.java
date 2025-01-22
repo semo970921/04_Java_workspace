@@ -17,6 +17,7 @@ public class ScannerEx2 {
         System.out.print("나이 입력 : ");
         int age = sc.nextInt();
 
+
         System.out.print("키 입력(cm) : ");
         double height = sc.nextDouble(); // 입력 버퍼에서 다음 실수를 읽어오기
 

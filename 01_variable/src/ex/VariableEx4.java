@@ -26,6 +26,7 @@ public class VariableEx4 {
         int num = Integer.MAX_VALUE;
         byte num2 = Byte.MAX_VALUE;
 
+
         System.out.println("num : " + num); // num : 2147483647
         System.out.println("num2 : " + num2); // num2 : 127
 
