@@ -24,7 +24,10 @@ public class VariableEx4 {
         System.out.println("오버 플로우(Overflow)");
 
         int num = Integer.MAX_VALUE;
+        byte num2 = Byte.MAX_VALUE;
+
         System.out.println("num : " + num); // num : 2147483647
+        System.out.println("num2 : " + num2); // num2 : 127
 
         num = num + 1;
         System.out.println("num + 1 : " + num); // num + 1 : -2147483648
