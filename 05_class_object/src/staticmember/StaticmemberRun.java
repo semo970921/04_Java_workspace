@@ -19,7 +19,6 @@ public class StaticmemberRun {
         System.out.println(k1.toString());
         System.out.println(k2.toString());
 
-
         System.out.println("-------------------------");
         System.out.println("[초기화 블럭 확인]");
 
