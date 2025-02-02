@@ -11,12 +11,12 @@ public class Student {
 
     public Student(){
         System.out.println("-- student 객체가 기본생성자로 생성되었습니다. --");
-        /*studentNumber = "2021xxxxx";
+        studentNumber = "2021xxxxx";
         name = "미입력";
         html = 100;
         css = 100;
         js = 100;
-        java = 100;*/
+        java = 100;
     }
 
     // Duplicate method Student() in type Student
