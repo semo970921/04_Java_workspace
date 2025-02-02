@@ -31,15 +31,22 @@ public class AbstractionRun {
         System.out.println(result2);
 
         System.out.println("----------------------");
+        System.out.println("== JVM 초기값 세팅 확인==");
+        Student std3 = new Student();
+        String result3 = std3.toString();
+        System.out.println(result3);
+
+
+        System.out.println("----------------------");
 
         // 일일이 다 하니 불편하네??
         // >>>>>생성자<<<<!!
 
-        Student std3 = new Student(
+        Student std4 = new Student(
                 "202521456", "철수",
                 95, 70, 80, 85
         );
-        String result3 = std3.toString();
-        System.out.println(result3);
+        String result4 = std4.toString();
+        System.out.println(result4);
     }
 }
