@@ -8,7 +8,6 @@ public class ConstructorRun {
         System.out.println(std1.toString());
 
         System.out.println("-------------------");
-
         // Student(String, String) 매개 변수가 있는 생성자 이용
         Student std2 = new Student("202127897",  "유리");
         System.out.println(std2.toString());
