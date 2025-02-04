@@ -1,6 +1,6 @@
 package section02;
 
-public class Person {
+public class Person  /*extends Object*/{
     // 필드
     private String name;
     private int age;
@@ -35,8 +35,14 @@ public class Person {
         this.age = age;
     }
 
-    // Person만의 함수
+    @Override
     public String toString(){
         return String.format("name: %s / age: %d", name, age);
+    }
+
+    public /*final*/ String introduce(String alias){
+        return String.format(
+                "[Person]의 이름은 %s 이고, 별명은 %s 입니다.",
+                name, alias);
     }
 }
