@@ -1,38 +1,40 @@
 package dto;
 
 public class StudentDTO {
-    private String studentNumber; // 학번
-    private String name;                 // 이름
-    private char gender;                 // 성별
-    private int html;
-    private int css;
-    private int js;
-    private int java;
+    private String studentNumber;   // 학번
+    private String name;                    // 이름
+    private char gender;                    // 성별
+    private int html;                           // html 점수
+    private int css;                            // css 점수
+    private int js;                               // js 점수
+    private int java;                           // java 점수
 
+    // 매개변수가 있는 생성자
     public StudentDTO(String studentNumber, String name, char gender) {
         this.studentNumber = studentNumber;
         this.name = name;
         this.gender = gender;
     }
 
+    // getter/setter : 필드 간접 접근
     public String getStudentNumber(){
         return studentNumber;
     }
-    public void setStudentNumber(String studentNumber){
+    public void setStudentNumber(String studentNumber) {
         this.studentNumber = studentNumber;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name;
     }
 
-    public char getGender(){
+    public char getGender() {
         return gender;
     }
-    public void setGender(char gender){
+    public void setGender(char gender) {
         this.gender = gender;
     }
 
@@ -66,14 +68,13 @@ public class StudentDTO {
 
     public String toString(){
         // [학번] 이름(성별)
-        // HTML : 100 / CSS : 50 : / JS :70 / Java : 100
+        //HTML : 100 / CSS : 50 : / JS :70 / Java : 100
         return
                 String.format(
-                   "[%s] %s(%c)\n"
-                   + "HTML : %d / CSS : %d : / JS :%d / Java : %d",
+                        "[%s] %s(%c)\n"
+                        +"HTML : %d / CSS : %d / JS : %d / Java : %d",
                         studentNumber, name, gender,
                         html, css, js, java);
     }
-
 
 }
