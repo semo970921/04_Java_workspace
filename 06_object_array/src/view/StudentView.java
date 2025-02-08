@@ -279,7 +279,6 @@ public class StudentView {
         System.out.println("-------------");
     }
 
-
     /**
      * 8. 학생 삭제(index 이용)
      * - index 입력 받아 검사(범위 초과, null 검사)
