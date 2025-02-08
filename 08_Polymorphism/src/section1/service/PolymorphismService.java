@@ -152,6 +152,24 @@ public class PolymorphismService {
     }
 
 
+    public void test5(){
+
+        Parent p = new Child("김", 200, "소나타");
+
+        test6(p);
+    }
+
+    public void test6(Object obj){
+        if(obj instanceof String){
+            String p= (String)obj;
+            System.out.println(obj);
+        } else{
+            System.out.println(obj.getClass());
+            System.out.println(obj.getClass().getName());
+        }
+    }
+
+
 
 
 
