@@ -331,11 +331,4 @@ public class StudentView {
         System.out.println(studentName + " 학생이 삭제 되었습니다.");
     }
 
-
-
-
-
-
-
-
 }

@@ -173,7 +173,6 @@ public class StudentService {
         return result;
     }
 
-
     /**
      * 8. 학생 삭제(index)
      * index 번째 학생 삭제  후 요소 한 칸 씩 당기기
