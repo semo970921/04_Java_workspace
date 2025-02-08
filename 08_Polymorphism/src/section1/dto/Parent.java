@@ -1,4 +1,4 @@
-package dto;
+package section1.dto;
 
 /**
  * 부모 역할 클래스

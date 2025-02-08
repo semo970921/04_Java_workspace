@@ -1,4 +1,4 @@
-package dto;
+package section1.dto;
 
 /**
  * Child 클래스

@@ -1,7 +1,7 @@
-package run;
+package section1.run;
 
-import dto.Child;
-import dto.Parent;
+import section1.dto.Child;
+import section1.dto.Parent;
 
 /**
  * 다형성 확인 + 기초
