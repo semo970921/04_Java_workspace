@@ -1,5 +1,7 @@
 package section01;
 
+import java.util.Objects;
+
 public class Book {
 
     private long bookNumber; // 책 번호
@@ -70,5 +72,12 @@ public class Book {
         if(!this.author.equals(other.author)) return false;
         if(this.price != other.price) return false;
         return true;
+    }
+
+    // =======================================
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(bookNumber, title, author, price);
     }
 }
