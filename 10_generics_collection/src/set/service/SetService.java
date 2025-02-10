@@ -1,6 +1,9 @@
 package set.service;
 
+import set.dto.Person;
+
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class SetService {
@@ -13,7 +16,7 @@ public class SetService {
         set.add("카카오");
         set.add("라인");
         set.add("쿠팡");
-        set.add("배달의 민족");
+        set.add("배달의민족");
         set.add("토스");
         set.add("당근마켓");
         set.add("직방");
@@ -44,4 +47,36 @@ public class SetService {
 
         System.out.println("set : " + set);
     }
+
+    /**
+     * Hash~ 컬렉션은 무조건  오버라이딩!
+     */
+    public void test2(){
+        Person p1 = new Person("짱구", 5, '남');
+        Person p2 = new Person("유리", 5, '여');
+        Person p3 = new Person("철수", 5, '남');
+        Person p4 = new Person("철수", 5, '남'); // 중복 필드 객체 생성
+
+       //  Set<Person> personSet = new HashSet<Person>();
+        Set<Person> personSet = new LinkedHashSet<Person>();
+
+        personSet.add(p1);
+        personSet.add(p2);
+        personSet.add(p3);
+        personSet.add(p4);
+
+        for(Person p :personSet ){
+            System.out.println(p/*.toString()*/);
+        }
+
+    }
+
+
+
+
+
+
+
+
+
 }
