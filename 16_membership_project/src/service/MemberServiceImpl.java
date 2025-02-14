@@ -102,18 +102,18 @@ public class MemberServiceImpl implements MemberService{
         int newAmount = oldAmount + acc;
         target.setAmount(newAmount);
 
-        String result= "";
-        int  oldGrade = target.getGrade();
+        String result = "";
+        int oldGrade = target.getGrade();
 
         // 등급 업데이트
         if (newAmount >= 100000) {
             target.setGrade(Member.DIAMOND);
-            if (!Objects.equals(oldGrade, Member.DIAMOND)) { // !oldGrade.equals(Member.DIAMOND)
+            if (!Objects.equals(oldGrade, Member.DIAMOND)) { // !oldGrade.equals(Member.
                 result = "* 다이아 * 등급으로 변경 되셨습니다\n";
             }
         } else if (newAmount >= 50000) {
             target.setGrade(Member.GOLD);
-            if (!Objects.equals(oldGrade, Member.GOLD)) {
+            if (!Objects.equals(oldGrade,Member.GOLD)) {
                 result = "* 골드 * 등급으로 변경 되셨습니다\n";
             }
         } else {
@@ -124,7 +124,7 @@ public class MemberServiceImpl implements MemberService{
 
         return target.getName() + " 회원님의 누적 금액\n" +
                 oldAmount + " -> " + newAmount + "\n" +
-                result;
+                result ;
     }
 
 
