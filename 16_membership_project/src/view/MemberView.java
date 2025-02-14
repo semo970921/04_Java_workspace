@@ -155,7 +155,7 @@ public class MemberView {
         } else {
             for (Member m : memberList) {
                 System.out.printf("%-15s %-12s %15d %8s%n",
-                        m.getName(), m.getPhone(), m.getAmount(), m.getGrade());
+                        m.getName(), m.getPhone(), m.getAmount(), m.getGrade()==0 ? "일반" : m.getGrade()==1 ? "골드" : "다이아");
             }
         }
     }
