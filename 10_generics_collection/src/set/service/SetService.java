@@ -3,6 +3,7 @@ package set.service;
 import set.dto.Person;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -70,6 +71,33 @@ public class SetService {
         }
 
     }
+
+    /**
+     * 반복 접근자
+     */
+    public void test3(){
+
+        Set<String> snacks = new HashSet<String>();
+
+        snacks.add("꼬북칩");
+        snacks.add("포카칩");
+        snacks.add("칙촉");
+        snacks.add("홈런볼");
+        snacks.add("쿠쿠다스");
+        snacks.add("프링글스");
+        snacks.add("다이제");
+
+        Iterator<String> it = snacks.iterator();
+
+        while(it.hasNext()){
+            String snack = it.next();
+            System.out.println(snack);
+        }
+    }
+
+
+
+
 
 
 
