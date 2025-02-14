@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 /* 왜 Service, Dao 인터페이스를 만들어서 구현했을까?
@@ -93,34 +94,7 @@ public class MemberServiceImpl implements MemberService{
     }
 
 
-    // 금액 누적
-/*    @Override
-    public String updateAmount(Member target, int acc) throws IOException {
 
-        int newAmount = target.getAmount() + acc;
-        target.setAmount(newAmount);
-
-        if(newAmount >=1000000){
-            target.setGrade("DIAMOND");
-        } else if(newAmount>=100000){
-            target.setGrade(Member.GOLD);
-        } else {
-            target.setGrade(Member.COMMON);
-        }
-
-        dao.saveFile();
-
-        return target.getName()+ " 님의 누적 금액\n" +
-                target.getAmount() + " -> " + acc +"\n"
-                + "*"+ target.getGrade() +"*  등급으로 변경되셨습니다.";
-//        return target.getName() + " 회원님의 누적 금액\n" +
-//                target.getAmount() + " -> " + newAmount;
-//        return target.getName() + " 회원님의 누적 금액\n" +
-//                oldAmount + " -> " + newAmount + "\n" ;
-        //ex)
-        // 2000 -> 100000
-        // * 골드 * 등급으로 변경 되셨습니다
-    }*/
 
     @Override
     public String updateAmount(Member target, int acc) throws IOException {
@@ -128,24 +102,29 @@ public class MemberServiceImpl implements MemberService{
         int newAmount = oldAmount + acc;
         target.setAmount(newAmount);
 
+        String result= "";
+        int  oldGrade = target.getGrade();
+
         // 등급 업데이트
         if (newAmount >= 100000) {
             target.setGrade(Member.DIAMOND);
+            if (!Objects.equals(oldGrade, Member.DIAMOND)) { // !oldGrade.equals(Member.DIAMOND)
+                result = "* 다이아 * 등급으로 변경 되셨습니다\n";
+            }
         } else if (newAmount >= 50000) {
             target.setGrade(Member.GOLD);
+            if (!Objects.equals(oldGrade, Member.GOLD)) {
+                result = "* 골드 * 등급으로 변경 되셨습니다\n";
+            }
         } else {
             target.setGrade(Member.COMMON);
         }
 
         dao.saveFile();
 
-        if (target == null) {
-            return "### 이름이 일치하는 회원이 존재하지 않습니다 ###";
-        }
-
         return target.getName() + " 회원님의 누적 금액\n" +
                 oldAmount + " -> " + newAmount + "\n" +
-                "*"+ target.getGradeString() +"*  등급으로 변경되셨습니다.";
+                result;
     }
 
 
