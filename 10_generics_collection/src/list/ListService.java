@@ -1,10 +1,16 @@
 package list;
 
+import generics.Child;
+import generics.Parent;
+
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Random;
 
 public class ListService {
 
-    public void test1(){
+    public void test1() {
         ArrayList list = new ArrayList();
 
         list.add(new Object());
@@ -13,8 +19,8 @@ public class ListService {
         list.get(0); // Object 타입 반환
         Object obj = list.get(1);
         System.out.println(obj);
-        if(obj instanceof String){ // 타입 검증
-            System.out.println( ((String)obj).length()); // 다운 캐스팅
+        if (obj instanceof String) { // 타입 검증
+            System.out.println(((String) obj).length()); // 다운 캐스팅
         }
 
         /*
@@ -30,7 +36,7 @@ public class ListService {
     /**
      * 제네릭스를 이용하여 타입 제한
      */
-    public void test2(){
+    public void test2() {
 
         ArrayList<String> menuList = new ArrayList<String>();
 
@@ -42,7 +48,7 @@ public class ListService {
         menuList.add("마라탕");
         menuList.add("떡볶이");
 
-        for(int i=0; i<menuList.size() ; i++) {
+        for (int i = 0; i < menuList.size(); i++) {
             String menu = menuList.get(i);
             System.out.println(menu);
         }
@@ -50,13 +56,13 @@ public class ListService {
         System.out.println("----------------------------");
 
         // 향상된 for문 가능
-        for(String menu:menuList) {
+        for (String menu : menuList) {
             System.out.println(menu);
         }
 
         System.out.println("------------------------------");
 
-        menuList.add(1,"갈비탕");
+        menuList.add(1, "갈비탕");
 
         System.out.println(menuList.toString());
 
@@ -77,4 +83,40 @@ public class ListService {
         System.out.println(menuList);
 
     }
+
+
+    // 중간 삽입 시 성능 분석
+    public void test3() {
+        List<Integer> list = new LinkedList<Integer>();
+
+        Random random = new Random();
+
+        long start = System.currentTimeMillis();
+
+        // int 범위 내에 난수 두개를 발생시켜 넣겠다
+        list.add(random.nextInt(Integer.MAX_VALUE));
+        list.add(random.nextInt(Integer.MAX_VALUE));
+
+        for (int i = 0; i < 1_000_00; i++) { // 10만 바퀴
+            // 1번 인덱스에 난수 삽입(중간 삽인)
+            list.add(1, random.nextInt(Integer.MAX_VALUE));
+        }
+        long end = System.currentTimeMillis();
+
+        System.out.println("걸린 시간 : " + (end - start) + "ms");
+    }
+
+
+    public void test4(){
+        List<Parent> list1 = new ArrayList<Parent>();
+        List<Child> list2  = new  ArrayList<>();
+        list2.add(new Child(1));
+        list2.add(new Child(2));
+        list2.add(new Child(3));
+        List<Parent> list3 = new ArrayList<Parent>();
+
+
+    }
+
+
 }
