@@ -1,4 +1,4 @@
-package list;
+package list.service;
 
 import generics.Child;
 import generics.Parent;
