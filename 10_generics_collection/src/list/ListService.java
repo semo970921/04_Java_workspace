@@ -107,16 +107,22 @@ public class ListService {
     }
 
 
-    public void test4(){
+    public void test4() {
+
         List<Parent> list1 = new ArrayList<Parent>();
-        List<Child> list2  = new  ArrayList<>();
+        list1.add(new Parent());
+        List<Child> list2 = new ArrayList<Child>();
         list2.add(new Child(1));
         list2.add(new Child(2));
         list2.add(new Child(3));
+
         List<Parent> list3 = new ArrayList<Parent>();
 
+        list3.addAll(list1);
+        list3.addAll(list2);
 
+        for (Parent p : list3) {
+            System.out.println(p);
+        }
     }
-
-
 }
