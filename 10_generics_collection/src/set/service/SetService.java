@@ -120,18 +120,29 @@ public class SetService {
         System.out.println(set);
     }
 
+    public String getLottoNumber(){
+        Random random = new Random();
 
+        Set<Integer> lotto = new TreeSet<Integer>();
 
+        while(lotto.size() < 6){
+            lotto.add(random.nextInt(45)+1);
+        }
 
+        return lotto.toString();
+    }
 
+    public void lottoNumberGenerator(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("생성할 로또 번호 개수 입력 : ");
+        int count = sc.nextInt();
 
+        for(int i=0; i<count; i++) {
+            System.out.printf("[%d회] : %s\n", i+1, getLottoNumber()); // 0회 1회 이렇게 말고 1회, 2회,.. 이렇게 하기위헤 i+1
+        }
 
-
-
-
-
-
-
+        System.out.println("금액 : " + (count*1000) + "원");
+    }
 
 
 
