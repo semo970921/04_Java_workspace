@@ -2,10 +2,7 @@ package set.service;
 
 import set.dto.Person;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.*;
 
 public class SetService {
 
@@ -93,7 +90,38 @@ public class SetService {
             String snack = it.next();
             System.out.println(snack);
         }
+
+        System.out.println("---향상된 for문---");
+
+        for(String snack : snacks){
+            System.out.println(snack);
+        }
+
+        System.out.println("---set -> List로 변환---");
+        List<String> list = new ArrayList<String>(snacks);
+
+        for(int i=0; i<list.size(); i++) {
+            System.out.println(list.get(i));
+        }
     }
+
+
+    public void test4(){
+        Set<String> set = new TreeSet<>();
+
+        set.add("짱구");
+        set.add("짱구");
+        set.add("유리");
+        set.add("철수");
+        set.add("훈이");
+        set.add("맹구");
+        set.add("짱구2호");
+
+        System.out.println(set);
+    }
+
+
+
 
 
 
