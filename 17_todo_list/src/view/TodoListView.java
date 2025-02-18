@@ -45,12 +45,12 @@ public class TodoListView {
                 selectNumber = selectMenu();
 
                 switch (selectNumber) {
-                    case 1: todoListFullView(); break;
-                    case 2: todoDetailView(); 	break;
+                    case 1: todoListFullView();        break;
+                    case 2: todoDetailView(); 	        break;
                     case 3: todoAdd(); 					break;
-                    case 4: todoComplete(); 		break;
-                    case 5: todoUpdate(); 			break;
-                    case 6: todoDelete(); 			break;
+                    case 4: todoComplete(); 		    break;
+                    case 5: todoUpdate(); 			    break;
+                    case 6: todoDelete(); 			        break;
 
                     case 0:
                         System.out.println("@@@ 프로그램 종료 @@@");
@@ -124,7 +124,26 @@ public class TodoListView {
 
         System.out.println("\n===============[1. Todo List Full View]===============\n");
 
+        Map<String, Object> map = service.todoListFullView();
+        List<Todo> todoList = (List<Todo>)map.get("todoList");
+        int completeCount = (int)map.get("complementCount");
 
+        System.out.printf("[ 완료된 Todo 개수 / 전체 Todo 수 : %d / %d ]\n", completeCount, todoList.size());
+        System.out.println("----------------------------------------------------------");
+        System.out.println("인덱스             등록일                  완료여부       할 일 제목");
+        System.out.println("----------------------------------------------------------");
+
+        // 할 일 목록 출력
+        for (int i = 0; i < todoList.size(); i++) {
+            Todo todo = todoList.get(i);
+            String formattedDate = service.dateFormat(todo.getRegDate());  // 날짜 포맷 변경
+            String completeMark = todo.isComplete() ? "(O)" : "(X)";  // 완료 여부 표시
+
+            System.out.printf("[ %d ]  %s  %s    %s\n", i, formattedDate, completeMark, todo.getTitle());
+        }
+
+//        System.out.println("==========================================================");
+//        System.out.println("\n====== Todo List =====");
 
     }
 

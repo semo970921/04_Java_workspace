@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,9 +27,17 @@ public class TodoListServiceImpl implements TodoListService{
     @Override
     public Map<String, Object> todoListFullView() {
 
+        Map<String, Object> map = new HashMap<>();
+
         // 할 일 목록 얻어오기
         List<Todo> todoList = dao.todoListFullView();
 
+        if(todoList == null){
+            todoList = new ArrayList<>(); // 빈 리스트 초기화
+            map.put("todoList", todoList);
+            map.put("complementCount", 0);
+            return map;
+        }
 
         // 완료된 할 일 개수 카운트
         int completeCount = 0;
@@ -41,7 +50,7 @@ public class TodoListServiceImpl implements TodoListService{
 
         // 메서드에서 반환은 하나의 값 또는 객체 밖에 할 수 없기 때문에
         // Map이라는 컬렉션을 이용해 여러 값을 한 번에 담아서 반환
-        Map<String, Object> map = new HashMap<String, Object>();
+//        Map<String, Object> map = new HashMap<String, Object>();
         map.put("todoList", todoList);
         map.put("completeCount", completeCount);
 
@@ -55,9 +64,9 @@ public class TodoListServiceImpl implements TodoListService{
 
         // 날짜와 시간을 원하는 포맷으로 출력하기
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        String formattedDateTime = regDate.format(formatter);
+        //String formattedDateTime = regDate.format(formatter);
 
-        return formattedDateTime;
+        return regDate.format(formatter);
     }
 
     //-------------------------------------------------------------------------------------------------
